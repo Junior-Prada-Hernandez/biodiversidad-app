@@ -53,10 +53,11 @@ async function cargarGaleriaPublica() {
         console.log('✅ Datos recibidos:', data);
         
         if (data.images && data.images.length > 0) {
-            // Filtrar solo imágenes publicadas
-            todasLasImagenes = data.images.filter(img => 
-                img.estado === 'publicada' || img.estado === 'activo'
-            );
+        // Filtrar solo imágenes publicadas PARA GALERÍA
+        todasLasImagenes = data.images.filter(img => 
+        (img.estado === 'publicada' || img.estado === 'activo') &&
+        img.tipo_publicacion === 'galeria'
+        );
             
             console.log(`📸 Imágenes publicadas: ${todasLasImagenes.length}`);
             
